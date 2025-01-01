@@ -8,7 +8,15 @@
  */
 
 const {onRequest} = require("firebase-functions/v2/https");
+import admin from 'firebase-admin';
 const logger = require("firebase-functions/logger");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://dsc-connect-6f139-default-rtdb.firebaseio.com/' // Replace with your database URL
+});
+
+const db = admin.database();
 
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started

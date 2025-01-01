@@ -10,6 +10,7 @@
 const {onRequest} = require("firebase-functions/v2/https");
 import admin from 'firebase-admin';
 const logger = require("firebase-functions/logger");
+import serviceAccount from './admin.json' assert { type: 'json' };
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
